@@ -10,9 +10,9 @@ WORKDIR /rubydoc
 RUN bundle install --deployment --without="development,test"
 
 COPY . /rubydoc
-COPY config/known_hosts /home/root/.ssh/known_hosts
 
-RUN mkdir -p tmp/pids \
+RUN ssh-keyscan -H github.com > /etc/ssh/ssh_known_hosts \
+      && mkdir -p tmp/pids \
       && mkdir data \
       && mkdir repos
 
