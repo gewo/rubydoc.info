@@ -10,16 +10,11 @@ WORKDIR /rubydoc
 RUN bundle install --deployment --without="development,test"
 
 COPY . /rubydoc
-COPY config/known_hosts /home/conan/.ssh/known_hosts
+COPY config/known_hosts /home/root/.ssh/known_hosts
 
 RUN mkdir -p tmp/pids \
       && mkdir data \
       && mkdir repos \
-      && useradd conan \
-      && chown -R conan /rubydoc \
-      && chown -R conan /home/conan
-
-USER conan
 
 CMD bundle exec puma
 
