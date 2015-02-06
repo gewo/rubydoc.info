@@ -16,6 +16,6 @@ RUN mkdir -p tmp/pids \
       && mkdir data \
       && mkdir repos \
 
-CMD bundle exec puma
+CMD bundle exec puma -C config/puma.rb
 
 EXPOSE 8080
