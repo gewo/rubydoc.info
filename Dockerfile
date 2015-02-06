@@ -1,6 +1,6 @@
 FROM assemblyline/ruby:2.1.5
 
-ENV GIT_SSH=/rubydoc/config/git_ssh
+ENV GIT_SSH /rubydoc/config/git_ssh
 
 COPY Gemfile /rubydoc/Gemfile
 COPY Gemfile.lock /rubydoc/Gemfile.lock
