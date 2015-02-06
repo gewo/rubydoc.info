@@ -14,7 +14,7 @@ COPY config/known_hosts /home/root/.ssh/known_hosts
 
 RUN mkdir -p tmp/pids \
       && mkdir data \
-      && mkdir repos \
+      && mkdir repos
 
 CMD bundle exec puma -C config/puma.rb
 
