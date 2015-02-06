@@ -1,0 +1,11 @@
+#!/bin/sh
+if [ -z "$SSH_KEY" ]; then
+    ssh "$@"
+else
+    echo $SSH_KEY > /tmp/id_rsa
+    chmod 600 /tmp/id_rsa
+    ssh -i /tmp/id_rsa "$@"
+    ssh_exit = $?
+    rm /tmp/id_rsa
+    exit ssh_exit
+fi
